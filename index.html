@@ -35,6 +35,24 @@
       font-size: 0.9em;
       color: #777;
     }
+    .tab-buttons button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #004466;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.tab-buttons button:hover {
+  background-color: #006699;
+}
+
+.tab-content {
+  margin-top: 20px;
+  padding: 15px;
+  border-top: 2px solid #004466;
+}
   </style>
 </head>
 <body>
@@ -54,5 +72,43 @@
   <footer>
     &copy; 2025 The Energy Ledger. All rights reserved.
   </footer>
+  <div class="tabs">
+  <div class="tab-buttons">
+    <button onclick="showTab('about')">About</button>
+    <button onclick="showTab('posts')">Recent Posts</button>
+    <button onclick="showTab('contact')">Contact</button>
+  </div>
+
+  <div id="about" class="tab-content">
+    <h2>About</h2>
+    <p>Welcome to Energy Compass — your trusted source for energy policy, regulatory compliance, and market insights.</p>
+  </div>
+
+  <div id="posts" class="tab-content" style="display:none;">
+    <h2>Recent Posts</h2>
+    <ul>
+      <li><a href="2025-grid-compliance.html">Understanding the 2025 Grid Compliance Rules</a></li>
+      <li>How New Policies Are Reshaping Renewables</li>
+      <li>Top 5 Regulatory Trends in the Global Energy Market</li>
+    </ul>
+  </div>
+
+  <div id="contact" class="tab-content" style="display:none;">
+    <h2>Contact</h2>
+    <p>Email: contact@energycompass.com</p>
+    <p>LinkedIn: <a href="#">Energy Compass</a></p>
+  </div>
+</div>
+  <script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.style.display = 'none');
+
+    const activeTab = document.getElementById(tabId);
+    if (activeTab) {
+      activeTab.style.display = 'block';
+    }
+  }
+</script>
 </body>
 </html>
